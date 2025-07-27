@@ -354,9 +354,9 @@ const Navbar = () => {
 
                 <div className="relative">
                   {["superadmin", "admin"].includes(user?.user?.role) &&
-                    getNewQuery.length !== 0 && (
+                    getNewQuery?.length !== 0 && (
                       <div className="absolute left-5 -top-3 bg-red-500 px-1.5 font-semibold rounded-full text-white text-sm">
-                        {getNewQuery.length ? getNewQuery.length : ""}
+                        {getNewQuery?.length ? getNewQuery?.length : ""}
                       </div>
                     )}
 

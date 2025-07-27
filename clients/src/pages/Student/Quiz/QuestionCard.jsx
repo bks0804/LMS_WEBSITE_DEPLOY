@@ -12,7 +12,7 @@ function QuestionCard({
   current,
   handleSubmit,
 }) {
-  const totalTime = questions.length * 30;
+  const totalTime = questions?.length * 30;
   const [timeLeft, setTimeLeft] = useState(totalTime);
   const [isPaused, setIsPaused] = useState(false);
   // Track selected option for this question

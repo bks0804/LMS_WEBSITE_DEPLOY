@@ -51,7 +51,7 @@ const CourseList = () => {
             </tr>
           </thead>
           <tbody>
-            {getCourses.length > 0 ? (
+            {getCourses?.length > 0 ? (
               getCourses?.map((item) => (
                 <React.Fragment key={item._id}>
                   {/* Course Row */}

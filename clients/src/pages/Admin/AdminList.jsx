@@ -77,7 +77,7 @@ const AdminList = () => {
   const calculateAvgRating = (selectedUser) => {
     if (
       !selectedUser?.ratingsOfTeacher ||
-      selectedUser?.ratingsOfTeacher.length === 0
+      selectedUser?.ratingsOfTeacher?.length === 0
     ) {
       return 0;
     }
@@ -562,7 +562,7 @@ const AdminList = () => {
                               EnrollCourses
                             </span>
                             <span className="text-[#c1c1c1] font-medium">
-                              {selectedUser?.enrolledCourses.length}
+                              {selectedUser?.enrolledCourses?.length}
                             </span>
                           </li>
                           <li className="space-x-5 ">
@@ -752,7 +752,7 @@ export default AdminList;
                       <div className="text-base text-primary col-span-3 font-semibold">
                         EnrollCourses :{" "}
                         <span className="text-base text-gray-700 font-normal">
-                          {selectedUser?.enrolledCourses.length}
+                          {selectedUser?.enrolledCourses?.length}
                         </span>
                       </div>
                       <div className="text-base text-primary col-span-3 font-semibold">

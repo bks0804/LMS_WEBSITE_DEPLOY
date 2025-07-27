@@ -26,7 +26,7 @@ const signupValidation = (req, res, next) => {
       .pattern(new RegExp("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&]).{8,}$"))
       .required(),
     phoneNumber: Joi.string()
-      .length(10)
+      ?.length(10)
       .pattern(/^[0-9]+$/)
       .required(),
     dateOfBirth: Joi.date()

@@ -168,7 +168,7 @@ const CourseProgress = () => {
   }, [courseId, courseData?.completed]);
 
   const handleLectureEnd = () => {
-    if (!getExistedRating || getExistedRating.length === 0) {
+    if (!getExistedRating || getExistedRating?.length === 0) {
       setShowRatingModal(true);
     }
   };

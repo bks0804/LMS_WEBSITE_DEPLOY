@@ -145,7 +145,7 @@ const CreateLecture = () => {
         </div>
 
         <div className="mt-12">
-          {getallLectures.length === 0 ? (
+          {getallLectures?.length === 0 ? (
             <>
               <p>No lecture is available</p>
             </>

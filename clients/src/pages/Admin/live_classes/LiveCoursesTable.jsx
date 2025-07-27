@@ -52,7 +52,7 @@ const LiveCoursesTable = () => {
           </thead>
 
           <tbody>
-            {getCourses.length > 0 ? (
+            {getCourses?.length > 0 ? (
               getCourses?.map((item) => (
                 <tr
                   key={item._id}

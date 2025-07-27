@@ -61,7 +61,7 @@ const getCreatedBlogs = async (req, res) => {
       blogs = await Blog.find(userId);
     }
 
-    if (!blogs || blogs.length === 0) {
+    if (!blogs || blogs?.length === 0) {
       return res.status(404).json({
         blogs: [],
         message: "No blogs found!",

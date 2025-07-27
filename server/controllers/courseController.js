@@ -75,7 +75,7 @@ const getCreatedCourse = async (req, res) => {
       courses = await Course.find({ creator: userId });
     }
 
-    if (!courses || courses.length === 0) {
+    if (!courses || courses?.length === 0) {
       return res.status(404).json({
         courses: [],
         message: "No courses found!",
@@ -400,7 +400,7 @@ const searchCourse = async (req, res) => {
       ],
     };
 
-    if (categories.length > 0) {
+    if (categories?.length > 0) {
       searchCriteria.category = { $in: categories };
     }
 

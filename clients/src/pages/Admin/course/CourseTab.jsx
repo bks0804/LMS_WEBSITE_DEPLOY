@@ -162,9 +162,9 @@ const CourseTab = () => {
         <div className="space-x-3">
           <button
             onClick={publishStatusHandler}
-            disabled={(data.lectures || []).length === 0}
+            disabled={(data.lectures || [])?.length === 0}
             className={`px-4 py-2 rounded ${
-              (data.lectures || []).length === 0
+              (data.lectures || [])?.length === 0
                 ? "bg-gray-400 cursor-not-allowed font-semibold"
                 : "border hover:bg-gray-100 font-semibold"
             }`}

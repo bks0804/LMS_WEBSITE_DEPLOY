@@ -79,11 +79,11 @@ const updateLectureProgress = async (req, res) => {
     // if all lecture is complete
     const lectureProgressLength = courseProgress.lectureProgress.filter(
       (lectureProg) => lectureProg.viewed
-    ).length;
+    )?.length;
 
     const course = await Course.findById(courseId);
 
-    if (course.lectures.length === lectureProgressLength)
+    if (course.lectures?.length === lectureProgressLength)
       courseProgress.completed = true;
 
     await courseProgress.save();

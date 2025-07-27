@@ -127,7 +127,7 @@ const MyAttendance = () => {
       <div className="p-4">
         {loading ? (
           <p className="text-gray-500">Loading...</p>
-        ) : validAttendances.length > 0 ? (
+        ) : validAttendances?.length > 0 ? (
           validAttendances?.map((item, index) => (
             <div
               key={index}

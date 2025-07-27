@@ -7,7 +7,7 @@ function Quiz() {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [selectedAnswers, setSelectedAnswers] = useState(
-    Array(questions.length).fill(null)
+    Array(questions?.length).fill(null)
   );
 
   const handleSelect = (selected) => {
@@ -17,7 +17,7 @@ function Quiz() {
   };
 
   const handleNext = () => {
-    if (current < questions.length - 1) {
+    if (current < questions?.length - 1) {
       setCurrent(current + 1);
     } else {
       // Calculate score at end
@@ -49,7 +49,7 @@ function Quiz() {
         <div className="bg-white shadow rounded text-center py-20">
           <h1 className="text-2xl font-bold">Quiz Completed!</h1>
           <p className="mt-4">
-            Your Score: {score} / {questions.length}
+            Your Score: {score} / {questions?.length}
           </p>
         </div>
       ) : (

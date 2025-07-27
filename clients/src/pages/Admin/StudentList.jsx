@@ -186,7 +186,7 @@ const StudentList = () => {
                   <td className="px-6 py-4">{student.role}</td>
                   <td className="px-6 py-4">{student.email}</td>
                   <td className="px-6 py-4">
-                    {student.enrolledCourses.length}
+                    {student.enrolledCourses?.length}
                   </td>
                   <td className="px-6 py-4 flex items-center gap-3">
                     <Link to="" className="text-red-500 dark:text-blue-500">
@@ -597,7 +597,7 @@ const StudentList = () => {
                         <div className="text-base text-primary font-semibold">
                           EnrollCourses :{" "}
                           <span className="text-base text-gray-700 font-normal">
-                            {selectedUser?.enrolledCourses.length}
+                            {selectedUser?.enrolledCourses?.length}
                           </span>
                         </div>
                         <div className="text-base text-primary font-semibold">
@@ -847,7 +847,7 @@ const StudentList = () => {
                               EnrollCourses
                             </span>
                             <span className="text-[#c1c1c1] font-medium">
-                              {selectedUser?.enrolledCourses.length}
+                              {selectedUser?.enrolledCourses?.length}
                             </span>
                           </li>
                           <li className="space-x-5 ">
@@ -1036,7 +1036,7 @@ export default StudentList;
 //                   <div className="text-base text-primary font-semibold">
 //                     EnrollCourses :{" "}
 //                     <span className="text-base text-gray-700 font-normal">
-//                       {selectedUser?.enrolledCourses.length}
+//                       {selectedUser?.enrolledCourses?.length}
 //                     </span>
 //                   </div>
 //                   <div className="text-base text-primary font-semibold">

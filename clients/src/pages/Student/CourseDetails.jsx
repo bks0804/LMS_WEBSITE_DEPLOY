@@ -78,7 +78,7 @@ const CourseDetails = () => {
             <p>Last updated {courseData?.course?.createdAt.split("")[0]}</p>
           </div>
           <p>
-            Students enrolled: {courseData?.course?.enrolledStudents.length}
+            Students enrolled: {courseData?.course?.enrolledStudents?.length}
           </p>
         </div>
       </div>

@@ -542,7 +542,7 @@ const getAttendanceDetailToAdmin = async (req, res) => {
       lectureId,
     }).populate("courseId");
 
-    if (existingAttendance.length > 0) {
+    if (existingAttendance?.length > 0) {
       return res.status(200).json({
         success: true,
         message: "Attendance found",

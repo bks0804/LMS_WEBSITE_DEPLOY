@@ -53,7 +53,7 @@ const BlogTable = () => {
           </thead>
 
           <tbody>
-            {getBlogs.length > 0 ? (
+            {getBlogs?.length > 0 ? (
               getBlogs?.map((item) => (
                 <tr
                   key={item._id}

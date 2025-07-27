@@ -32,7 +32,7 @@ const SearchPage = () => {
       let queryString = `?query=${encodeURIComponent(query)}`;
 
       // Append category if available
-      if (selectedCategories.length > 0) {
+      if (selectedCategories?.length > 0) {
         const categoriesString = selectedCategories
           ?.map(encodeURIComponent)
           .join(",");
@@ -58,7 +58,7 @@ const SearchPage = () => {
       );
 
       setCourses(res.data.courses);
-      setIsEmpty(res.data.courses.length === 0);
+      setIsEmpty(res.data.courses?.length === 0);
     } catch (error) {
       console.error("Error fetching courses:", error.response?.data || error);
       setIsEmpty(true);
