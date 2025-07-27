@@ -1,0 +1,41 @@
+import React from "react";
+
+const TeacherStar = ({ index, rating, setRating }) => {
+  const handleClick = () => {
+    setRating(index + 1);
+  };
+
+  return (
+    <div className="text-5xl">
+      {rating >= index + 1 ? (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={36}
+          height={36}
+          viewBox="0 0 24 24"
+          onClick={handleClick}
+        >
+          <path
+            fill="#f90"
+            d="M12.954 1.7a1 1 0 0 0-1.908-.001l-2.184 6.92-6.861-.005a1 1 0 0 0-.566 1.826l5.498 3.762-2.067 6.545A1 1 0 0 0 6.4 21.86l5.6-4.006 5.594 4.007a1 1 0 0 0 1.536-1.114l-2.067-6.545 5.502-3.762a1 1 0 0 0-.566-1.826l-6.866.005z"
+          />
+        </svg>
+      ) : (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={36}
+          height={36}
+          viewBox="0 0 24 24"
+          onClick={handleClick}
+        >
+          <path
+            fill="#b7b0b0"
+            d="M12.954 1.7a1 1 0 0 0-1.908-.001l-2.184 6.92-6.861-.005a1 1 0 0 0-.566 1.826l5.498 3.762-2.067 6.545A1 1 0 0 0 6.4 21.86l5.6-4.006 5.594 4.007a1 1 0 0 0 1.536-1.114l-2.067-6.545 5.502-3.762a1 1 0 0 0-.566-1.826l-6.866.005z"
+          />
+        </svg>
+      )}
+    </div>
+  );
+};
+
+export default TeacherStar;
