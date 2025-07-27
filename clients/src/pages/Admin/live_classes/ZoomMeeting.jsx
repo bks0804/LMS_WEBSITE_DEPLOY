@@ -30,7 +30,7 @@ export default function ScheduleMeetingForm() {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/create-meeting",
+        "FRONTEND_SERVER_API/create-meeting",
         formData,
         {
           headers: {
@@ -57,7 +57,7 @@ export default function ScheduleMeetingForm() {
     if (!meetingId) return;
 
     try {
-      const res = await axios.get(`http://localhost:8000/meeting/${meetingId}`);
+      const res = await axios.get(`FRONTEND_SERVER_API/meeting/${meetingId}`);
       // setMeeting(res.data);
     } catch (error) {
       console.error("Failed to fetch meeting", error);

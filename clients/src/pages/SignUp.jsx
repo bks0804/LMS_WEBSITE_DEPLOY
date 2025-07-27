@@ -80,7 +80,7 @@ const SignUp = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/user/register",
+        "FRONTEND_SERVER_API/api/user/register",
         formData
       );
       // console.log(response.data);

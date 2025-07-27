@@ -12,7 +12,7 @@ const Courses = () => {
   const getPublishedCourse = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8000/api/course/published-courses"
+        "FRONTEND_SERVER_API/api/course/published-courses"
       );
       setCourses(res.data.courses);
     } catch (error) {

@@ -16,7 +16,7 @@ const BlogDetails = () => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          `http://localhost:8000/api/blog/${blogId}/getblog`,
+          `FRONTEND_SERVER_API/api/blog/${blogId}/getblog`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -36,7 +36,7 @@ const BlogDetails = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.get(
-        `http://localhost:8000/api/blog/published-blogs`,
+        `FRONTEND_SERVER_API/api/blog/published-blogs`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -58,7 +58,7 @@ const BlogDetails = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `http://localhost:8000/api/blog/${blogId}/getallcomment`,
+        `FRONTEND_SERVER_API/api/blog/${blogId}/getallcomment`,
 
         {
           headers: {
@@ -84,7 +84,7 @@ const BlogDetails = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        `http://localhost:8000/api/blog/${blogId}/comment`,
+        `FRONTEND_SERVER_API/api/blog/${blogId}/comment`,
         {
           message: commentMessage,
         },

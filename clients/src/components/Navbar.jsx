@@ -24,7 +24,7 @@ const Navbar = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.delete(
-        `http://localhost:8000/api/contactus/${queryId}/deletequery`,
+        `FRONTEND_SERVER_API/api/contactus/${queryId}/deletequery`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -45,7 +45,7 @@ const Navbar = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.get(
-        "http://localhost:8000/api/contactus/getallquery",
+        "FRONTEND_SERVER_API/api/contactus/getallquery",
 
         {
           headers: {
@@ -112,7 +112,7 @@ const Navbar = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.put(
-        `http://localhost:8000/api/contactus/${queryId}/replytoquery`,
+        `FRONTEND_SERVER_API/api/contactus/${queryId}/replytoquery`,
         { replyText, userId },
 
         {

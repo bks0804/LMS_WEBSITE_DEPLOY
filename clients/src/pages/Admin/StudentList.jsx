@@ -11,9 +11,7 @@ const StudentList = () => {
   const [selectedUser, setSelectedUser] = useState(false);
   const getAllStudents = async () => {
     try {
-      const res = await axios.get(
-        "http://localhost:8000/api/user/getallstudent"
-      );
+      const res = await axios.get("FRONTEND_SERVER_API/api/user/getallstudent");
 
       setStudents(res.data.students);
     } catch (error) {
@@ -55,7 +53,7 @@ const StudentList = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.put(
-        `http://localhost:8000/api/user/${studentId}/updateStudentToAdmin`,
+        `FRONTEND_SERVER_API/api/user/${studentId}/updateStudentToAdmin`,
         formdata,
         {
           headers: {
@@ -91,7 +89,7 @@ const StudentList = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.delete(
-        `http://localhost:8000/api/user/${studentId}`,
+        `FRONTEND_SERVER_API/api/user/${studentId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

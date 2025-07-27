@@ -14,7 +14,7 @@ const CourseList = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        "http://localhost:8000/api/course/published-courses",
+        "FRONTEND_SERVER_API/api/course/published-courses",
         {
           headers: { Authorization: `Bearer ${token}` },
         }

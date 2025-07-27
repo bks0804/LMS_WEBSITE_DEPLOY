@@ -30,12 +30,13 @@ const _dirname = path.resolve();
 //   res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
 //   next();
 // });
-app.use(
-  cors({
-    origin: "http://localhost:8000",
-    credentials: true,
-  })
-);
+
+// app.use(
+//   cors({
+//     origin: "FRONTEND_SERVER_API",
+//     credentials: true,
+//   })
+// );
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));

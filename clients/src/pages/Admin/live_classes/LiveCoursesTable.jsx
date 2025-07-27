@@ -10,7 +10,7 @@ const LiveCoursesTable = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        "http://localhost:8000/api/course/getalllivecourses",
+        "FRONTEND_SERVER_API/api/course/getalllivecourses",
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -27,7 +27,7 @@ const ContactUs = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.post(
-        "http://localhost:8000/api/contactus/querycreate",
+        "FRONTEND_SERVER_API/api/contactus/querycreate",
         formData,
         {
           headers: {

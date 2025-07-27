@@ -22,7 +22,7 @@ const EditBlog = () => {
     const fetchBlog = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/blog/${blogId}/getblog`,
+          `FRONTEND_SERVER_API/api/blog/${blogId}/getblog`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -87,7 +87,7 @@ const EditBlog = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/blog/${blogId}/updateblog/`,
+        `FRONTEND_SERVER_API/api/blog/${blogId}/updateblog/`,
         formData,
         {
           headers: {
@@ -107,7 +107,7 @@ const EditBlog = () => {
   const publishStatusHandler = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/blog/${blogId}/publish`,
+        `FRONTEND_SERVER_API/api/blog/${blogId}/publish`,
         { isPublished: !data.isPublished },
         {
           headers: {
@@ -128,7 +128,7 @@ const EditBlog = () => {
   const removeBlogHandler = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:8000/api/blog/${blogId}/blog-remove`,
+        `FRONTEND_SERVER_API/api/blog/${blogId}/blog-remove`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

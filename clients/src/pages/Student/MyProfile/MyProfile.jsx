@@ -41,7 +41,7 @@ const MyProfile = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.put(
-        "http://localhost:8000/api/user/profile/update",
+        "FRONTEND_SERVER_API/api/user/profile/update",
         formdata,
         {
           headers: {
@@ -67,7 +67,7 @@ const MyProfile = () => {
         return;
       }
 
-      const res = await axios.get("http://localhost:8000/api/user/profile", {
+      const res = await axios.get("FRONTEND_SERVER_API/api/user/profile", {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -108,7 +108,7 @@ const MyProfile = () => {
       // const userId = user?.user._id;
       // console.log(userId);
       const response = await axios.get(
-        `http://localhost:8000/api/contactus/getqueryreply`,
+        `FRONTEND_SERVER_API/api/contactus/getqueryreply`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

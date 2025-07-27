@@ -11,7 +11,7 @@ const MyAttendance = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.post(
-        "http://localhost:8000/api/user/attendance/mark",
+        "FRONTEND_SERVER_API/api/user/attendance/mark",
         { status: "Present" },
         {
           headers: {
@@ -31,7 +31,7 @@ const MyAttendance = () => {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:8000/api/attendance/getexstedattendancedetail",
+        "FRONTEND_SERVER_API/api/attendance/getexstedattendancedetail",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -89,7 +89,7 @@ const MyAttendance = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.post(
-        "http://localhost:8000/api/attendance/markstudentattendance",
+        "FRONTEND_SERVER_API/api/attendance/markstudentattendance",
         {
           attendanceId,
           status: "Present",

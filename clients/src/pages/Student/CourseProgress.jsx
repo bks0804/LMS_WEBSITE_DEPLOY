@@ -28,7 +28,7 @@ const CourseProgress = () => {
       }
 
       const response = await axios.get(
-        `http://localhost:8000/api/course-progress/${courseId}`,
+        `FRONTEND_SERVER_API/api/course-progress/${courseId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -67,7 +67,7 @@ const CourseProgress = () => {
       }
 
       await axios.post(
-        `http://localhost:8000/api/course-progress/${courseId}/lecture/${lectureId}/view`,
+        `FRONTEND_SERVER_API/api/course-progress/${courseId}/lecture/${lectureId}/view`,
         {},
         {
           headers: {
@@ -109,7 +109,7 @@ const CourseProgress = () => {
       }
 
       const response = await axios.post(
-        `http://localhost:8000/api/course-progress/${courseId}/completed`,
+        `FRONTEND_SERVER_API/api/course-progress/${courseId}/completed`,
         {},
         {
           headers: {
@@ -139,7 +139,7 @@ const CourseProgress = () => {
       }
 
       const response = await axios.post(
-        `http://localhost:8000/api/course-progress/${courseId}/incompleted`,
+        `FRONTEND_SERVER_API/api/course-progress/${courseId}/incompleted`,
         {},
         {
           headers: {
@@ -197,7 +197,7 @@ const CourseProgress = () => {
       }
 
       const res = await axios.put(
-        `http://localhost:8000/api/course-progress/${courseId}/updateexistrating`,
+        `FRONTEND_SERVER_API/api/course-progress/${courseId}/updateexistrating`,
         { rating, lectureId },
         {
           headers: {
@@ -227,7 +227,7 @@ const CourseProgress = () => {
       }
 
       const res = await axios.post(
-        `http://localhost:8000/api/course-progress/${courseId}/getexistrating`,
+        `FRONTEND_SERVER_API/api/course-progress/${courseId}/getexistrating`,
         {
           lectureId:
             currentLecture?._id ||
@@ -264,7 +264,7 @@ const CourseProgress = () => {
     }
 
     try {
-      const res = await axios.get(`http://localhost:8000/meeting/${meetingId}`);
+      const res = await axios.get(`FRONTEND_SERVER_API/meeting/${meetingId}`);
       setMeeting(res.data);
     } catch (error) {
       console.error("Failed to fetch meeting", error);
@@ -292,7 +292,7 @@ const CourseProgress = () => {
       }
 
       const res = await axios.post(
-        `http://localhost:8000/api/course-progress/${courseId}/rate-lecture`,
+        `FRONTEND_SERVER_API/api/course-progress/${courseId}/rate-lecture`,
         {
           lectureId:
             currentLecture?._id ||
@@ -337,7 +337,7 @@ const CourseProgress = () => {
       }
 
       const res = await axios.post(
-        "http://localhost:8000/api/user/attendance/mark",
+        "FRONTEND_SERVER_API/api/user/attendance/mark",
         {
           status: "Present",
           courseId,

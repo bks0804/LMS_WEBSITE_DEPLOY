@@ -24,7 +24,7 @@ const CourseTab = () => {
     const fetchCourse = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/course/${courseId}/getcourse/`,
+          `FRONTEND_SERVER_API/api/course/${courseId}/getcourse/`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -94,7 +94,7 @@ const CourseTab = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/course/${courseId}/updatecourse/`,
+        `FRONTEND_SERVER_API/api/course/${courseId}/updatecourse/`,
         formData,
         {
           headers: {
@@ -114,7 +114,7 @@ const CourseTab = () => {
   const publishStatusHandler = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/course/${courseId}/publish`,
+        `FRONTEND_SERVER_API/api/course/${courseId}/publish`,
         { isPublished: !data.isPublished },
         {
           headers: {
@@ -135,7 +135,7 @@ const CourseTab = () => {
   const removeCourseHandler = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:8000/api/course/${courseId}/course-remove`,
+        `FRONTEND_SERVER_API/api/course/${courseId}/course-remove`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

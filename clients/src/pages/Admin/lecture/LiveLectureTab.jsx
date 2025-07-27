@@ -37,7 +37,7 @@ const LiveLectureTab = ({ lectureMode }) => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `http://localhost:8000/api/course/getcourselecture/${lectureId}`,
+        `FRONTEND_SERVER_API/api/course/getcourselecture/${lectureId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -69,7 +69,7 @@ const LiveLectureTab = ({ lectureMode }) => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/create-meeting",
+        "FRONTEND_SERVER_API/create-meeting",
         formData,
         {
           headers: {
@@ -104,7 +104,7 @@ const LiveLectureTab = ({ lectureMode }) => {
     try {
       const response = await axios
         .put(
-          `http://localhost:8000/api/course/${courseId}/getcourselecture/${lectureId}`,
+          `FRONTEND_SERVER_API/api/course/${courseId}/getcourselecture/${lectureId}`,
 
           data,
 

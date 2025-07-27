@@ -11,7 +11,7 @@ const AdminList = () => {
 
   const getAllAdmins = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/user/getalladmin");
+      const res = await axios.get("FRONTEND_SERVER_API/api/user/getalladmin");
 
       // console.log(res.data.admins);
       setAdmins(res.data.admins);
@@ -44,7 +44,7 @@ const AdminList = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.delete(
-        `http://localhost:8000/api/user/${studentId}`,
+        `FRONTEND_SERVER_API/api/user/${studentId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

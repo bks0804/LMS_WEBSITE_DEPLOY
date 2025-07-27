@@ -48,7 +48,7 @@ const UserAttendanceDash = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.post(
-        "http://localhost:8000/api/attendance/create",
+        "FRONTEND_SERVER_API/api/attendance/create",
         attendanceData,
         {
           headers: {
@@ -70,7 +70,7 @@ const UserAttendanceDash = () => {
       const token = localStorage.getItem("token");
 
       const res = await axios.post(
-        `http://localhost:8000/api/attendance/markedattendanceuser`,
+        `FRONTEND_SERVER_API/api/attendance/markedattendanceuser`,
         { courseTitle, lectureTitle },
         {
           headers: {

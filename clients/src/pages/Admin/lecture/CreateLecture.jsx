@@ -17,7 +17,7 @@ const CreateLecture = () => {
     try {
       const response = await axios
         .post(
-          `http://localhost:8000/api/course/${courseId}/createlecture`,
+          `FRONTEND_SERVER_API/api/course/${courseId}/createlecture`,
 
           { lectureTitle },
 
@@ -43,7 +43,7 @@ const CreateLecture = () => {
 
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/course/${courseId}/getcourselecture`,
+        `FRONTEND_SERVER_API/api/course/${courseId}/getcourselecture`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

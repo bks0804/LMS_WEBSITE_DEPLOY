@@ -22,7 +22,7 @@ const DashboardAnalytics = () => {
       }
 
       const res = await axios.get(
-        "http://localhost:8000/api/payment/purchasedcourse",
+        "FRONTEND_SERVER_API/api/payment/purchasedcourse",
         {
           headers: {
             Authorization: `Bearer ${token}`,

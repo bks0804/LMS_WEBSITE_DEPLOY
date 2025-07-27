@@ -12,7 +12,7 @@ const Blogs = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.get(
-        `http://localhost:8000/api/blog/published-blogs`,
+        `FRONTEND_SERVER_API/api/blog/published-blogs`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

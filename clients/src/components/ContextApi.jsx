@@ -14,7 +14,7 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get("http://localhost:8000/api/user/profile", {
+      .get("FRONTEND_SERVER_API/api/user/profile", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {

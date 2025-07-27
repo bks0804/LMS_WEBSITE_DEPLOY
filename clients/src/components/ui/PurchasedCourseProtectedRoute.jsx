@@ -18,7 +18,7 @@ export const PurchasedCourseProtectedRoute = ({ children }) => {
         }
 
         const response = await axios.get(
-          `http://localhost:8000/api/payment/course/${courseId}/detail-with-status`,
+          `FRONTEND_SERVER_API/api/payment/course/${courseId}/detail-with-status`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
