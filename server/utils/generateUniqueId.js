@@ -9,7 +9,7 @@ const generateStudentAndCourseUniqueId = (
   const getAcronym = (courseTitle) => {
     return courseTitle
       .split(" ")
-      .map((word) => word[0].toUpperCase())
+      ?.map((word) => word[0].toUpperCase())
       .join("");
   };
 
@@ -47,7 +47,7 @@ module.exports = { generateStudentAndCourseUniqueId, generateUserUniqueId };
 //   const getAcronym = (courseName) => {
 //     return courseName
 //       .split(" ")
-//       .map((word) => word[0].toUpperCase())
+//       ?.map((word) => word[0].toUpperCase())
 //       .join("");
 //   };
 

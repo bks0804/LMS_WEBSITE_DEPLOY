@@ -33,7 +33,7 @@ const Blogs = () => {
 
   return (
     <div className="py-24 mt-12 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-5 lg:px-5">
-      {publishedBlogs.map((blog, index) => {
+      {publishedBlogs?.map((blog, index) => {
         return (
           <div
             key={index}

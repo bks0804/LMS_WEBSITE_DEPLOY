@@ -34,7 +34,7 @@ const SearchPage = () => {
       // Append category if available
       if (selectedCategories.length > 0) {
         const categoriesString = selectedCategories
-          .map(encodeURIComponent)
+          ?.map(encodeURIComponent)
           .join(",");
         queryString += `&categories=${categoriesString}`;
       }
@@ -86,7 +86,7 @@ const SearchPage = () => {
           {isEmpty ? (
             <CourseNotFound />
           ) : (
-            courses.map((course, index) => (
+            courses?.map((course, index) => (
               <SearchResult key={index} course={course} />
             ))
           )}

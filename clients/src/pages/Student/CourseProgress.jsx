@@ -555,7 +555,7 @@ const CourseProgress = () => {
         <div className="flex flex-col w-full md:w-2/5 border-t md:border-t-0 md:border-l border-gray-200  md:pl-4 pt-4 md:pt-0 ">
           <h2 className="font-bold text-xl mb-4">Course Lectures</h2>
           <div className="flex-1 overflow-y-auto ">
-            {courseData?.courseDetails?.lectures.map((lecture) => (
+            {courseData?.courseDetails?.lectures?.map((lecture) => (
               <div
                 key={lecture._id}
                 onClick={() => {
@@ -648,7 +648,7 @@ export default CourseProgress;
   /* <div className="flex flex-col w-full md:w-2/5 border-t md:border-t-0 md:border-l border-gray-200  md:pl-4 pt-4 md:pt-0 ">
           <h2 className="font-bold text-xl mb-4">Course Lectures</h2>
           <div className="flex-1 overflow-y-auto ">
-            {courseData?.courseDetails?.lectures.map((lecture) => (
+            {courseData?.courseDetails?.lectures?.map((lecture) => (
               <div
                 key={lecture._id}
                 onClick={() => {

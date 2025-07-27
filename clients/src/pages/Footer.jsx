@@ -89,7 +89,7 @@ const Footer = () => {
           <div className="px-10 lg:col-span-3 lg:ml-20">
             <h1 className="text-xl font-bold text-primary">Sitemap</h1>
             <ul className="space-y-1 mt-3">
-              {NavData.map((data, index) => (
+              {NavData?.map((data, index) => (
                 <li key={index} className="flex items-center rounded-md py-2">
                   <span>
                     {" "}
@@ -121,7 +121,7 @@ const Footer = () => {
           <div className="px-10 lg:col-span-3">
             <h1 className="text-xl font-bold text-primary">Support</h1>
             <ul className="space-y-1 mt-3">
-              {SupportData.map((data, index) => (
+              {SupportData?.map((data, index) => (
                 <li key={index} className="flex items-center rounded-md py-2">
                   <span>
                     {" "}

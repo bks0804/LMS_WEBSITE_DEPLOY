@@ -150,7 +150,7 @@ const CreateLecture = () => {
               <p>No lecture is available</p>
             </>
           ) : (
-            getallLectures.lectures.map((lecture, index) => {
+            getallLectures.lectures?.map((lecture, index) => {
               return (
                 <>
                   <div key={index}>

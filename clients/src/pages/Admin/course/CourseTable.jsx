@@ -53,7 +53,7 @@ const CourseTable = () => {
 
           <tbody>
             {getCourses.length > 0 ? (
-              getCourses.map((item) => (
+              getCourses?.map((item) => (
                 <tr
                   key={item._id}
                   className="bg-white dark:bg-gray-800 border-t z-20"

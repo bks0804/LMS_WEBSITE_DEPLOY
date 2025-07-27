@@ -99,7 +99,7 @@ const CourseDetails = () => {
               </h2>
             </div>
             <div className="space-y-3">
-              {courseData?.course?.lectures.map((lecture, idx) => (
+              {courseData?.course?.lectures?.map((lecture, idx) => (
                 <div key={idx} className="flex items-center gap-3 text-sm">
                   <div className="border border-gray-500 rounded-full p-1">
                     {" "}

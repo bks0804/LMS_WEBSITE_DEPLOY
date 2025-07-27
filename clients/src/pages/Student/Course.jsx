@@ -176,7 +176,7 @@ export default Course;
             <div className="text-wrap">{course.creator.name}</div>
           </div>
           <div className="flex items-center">
-            {Array.from({ length: 5 }).map((_, index) => {
+            {Array.from({ length: 5 })?.map((_, index) => {
               return (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

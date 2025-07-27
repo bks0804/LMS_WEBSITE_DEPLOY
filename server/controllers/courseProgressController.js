@@ -111,7 +111,7 @@ const markAsCompleted = async (req, res) => {
       return res.status(404).json({ message: "CourseProgress not found" });
     }
 
-    courseProgress.lectureProgress.map(
+    courseProgress.lectureProgress?.map(
       (lectureProgress) => (lectureProgress.viewed = true)
     );
     courseProgress.completed = true;
@@ -138,7 +138,7 @@ const markAsInCompleted = async (req, res) => {
       return res.status(404).json({ message: "CourseProgress not found" });
     }
 
-    courseProgress.lectureProgress.map(
+    courseProgress.lectureProgress?.map(
       (lectureProgress) => (lectureProgress.viewed = false)
     );
     courseProgress.completed = false;

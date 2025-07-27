@@ -25,7 +25,7 @@ const Filter = ({ handleFilterChange }) => {
         ? prevCategories.filter((id) => id !== categoryId)
         : [...prevCategories, categoryId];
 
-      handleFilterChange(newCategories,sortByPrice,sortByLevel);
+      handleFilterChange(newCategories, sortByPrice, sortByLevel);
 
       return newCategories;
     });
@@ -33,11 +33,11 @@ const Filter = ({ handleFilterChange }) => {
 
   const selectByPriceHandler = (selectedValue) => {
     setSortByPrice(selectedValue);
-    handleFilterChange(selectedCategories, selectedValue,sortByLevel);
+    handleFilterChange(selectedCategories, selectedValue, sortByLevel);
   };
   const selectByLevelHandler = (selectedValue) => {
     setSortByLevel(selectedValue);
-    handleFilterChange(selectedCategories,sortByPrice, selectedValue);
+    handleFilterChange(selectedCategories, sortByPrice, selectedValue);
   };
 
   return (
@@ -77,7 +77,7 @@ const Filter = ({ handleFilterChange }) => {
       </div>
       <div>
         <h1 className="mt-4 font-bold">CATEGORY</h1>
-        {categories.map((category) => (
+        {categories?.map((category) => (
           <div key={category.id} className="flex items-center space-x-2 my-2">
             <input
               id={category.id}

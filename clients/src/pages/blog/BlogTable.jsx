@@ -54,7 +54,7 @@ const BlogTable = () => {
 
           <tbody>
             {getBlogs.length > 0 ? (
-              getBlogs.map((item) => (
+              getBlogs?.map((item) => (
                 <tr
                   key={item._id}
                   className="bg-white dark:bg-gray-800 border-t z-20"

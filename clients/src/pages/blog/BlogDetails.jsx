@@ -171,7 +171,7 @@ const BlogDetails = () => {
         <div className="px-5 md:px-8 lg:px-12">
           <h2 className="text-2xl font-bold mt-5">Comments</h2>
 
-          {getComments.map((comment, index) => {
+          {getComments?.map((comment, index) => {
             return (
               <div className="flex items-center gap-8 md:gap-16 lg:gap-20 mt-4 sm:mt-8 md:mt-16">
                 <img
@@ -297,7 +297,7 @@ const BlogDetails = () => {
         </div>
         <div className="bg-gray-50 rounded-md p-8">
           <h1 className="text-2xl text-primary font-bold">Categaries</h1>
-          {Categaries.map((Categary, index) => {
+          {Categaries?.map((Categary, index) => {
             return (
               <>
                 <h2
@@ -313,7 +313,7 @@ const BlogDetails = () => {
 
         <div className="bg-gray-50 rounded-md p-8 space-y-5">
           <h1 className="text-2xl text-primary font-bold">Popular Posts</h1>
-          {publishedBlogs.map((blog, index) => {
+          {publishedBlogs?.map((blog, index) => {
             return (
               <div key={index} className="flex items-center gap-3">
                 <img

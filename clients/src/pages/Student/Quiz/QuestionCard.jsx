@@ -114,7 +114,7 @@ function QuestionCard({
           Q{current + 1} : {question}
         </h2>
         <div className="mt-20 sm:pl-8 md:pl-12 mb-24 max-w-md space-y-2">
-          {options.map((opt, idx) => (
+          {options?.map((opt, idx) => (
             <button
               key={idx}
               onClick={() => handleOptionClick(opt)}

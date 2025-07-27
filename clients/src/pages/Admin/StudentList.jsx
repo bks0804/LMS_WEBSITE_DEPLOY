@@ -142,7 +142,7 @@ const StudentList = () => {
             </tr>
           </thead>
           <tbody>
-            {students.map((student, index) => {
+            {students?.map((student, index) => {
               return (
                 <tr
                   key={index}

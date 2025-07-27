@@ -128,7 +128,7 @@ const MyAttendance = () => {
         {loading ? (
           <p className="text-gray-500">Loading...</p>
         ) : validAttendances.length > 0 ? (
-          validAttendances.map((item, index) => (
+          validAttendances?.map((item, index) => (
             <div
               key={index}
               className="border rounded-2xl p-8 mb-4 bg-white space-y-2 shadow-[0_3px_10px_rgba(0,0,0,0.3)]"

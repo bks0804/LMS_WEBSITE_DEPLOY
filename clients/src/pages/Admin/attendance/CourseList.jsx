@@ -52,7 +52,7 @@ const CourseList = () => {
           </thead>
           <tbody>
             {getCourses.length > 0 ? (
-              getCourses.map((item) => (
+              getCourses?.map((item) => (
                 <React.Fragment key={item._id}>
                   {/* Course Row */}
                   <tr
@@ -81,7 +81,7 @@ const CourseList = () => {
                       <td colSpan={2} className="px-6 pb-4 pt-2">
                         <ul className="text-gray-700 space-y-2">
                           {item.lectures?.length > 0 ? (
-                            item.lectures.map((lecture, index) => (
+                            item.lectures?.map((lecture, index) => (
                               <li key={lecture._id}>
                                 <div
                                   onClick={() =>

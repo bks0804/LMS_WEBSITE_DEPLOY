@@ -190,7 +190,7 @@ const Navbar = () => {
 
               <div className="relative flex items-center">
                 <ul className="hidden md:flex space-x-5 text-lg font-bold">
-                  {NavData.map((data, index) => (
+                  {NavData?.map((data, index) => (
                     <li
                       key={index}
                       className="rounded-md px-3 py-2 text-primary hover:text-secondary"
@@ -439,7 +439,7 @@ const Navbar = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {getNewQuery.map((item, index) => (
+                          {getNewQuery?.map((item, index) => (
                             <tr
                               key={index}
                               className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200"
@@ -530,7 +530,7 @@ const Navbar = () => {
           id="mobile-menu"
         >
           <ul className="space-y-1 px-2 pb-3 pt-2 text-lg font-semibold">
-            {NavData.map((data, index) => (
+            {NavData?.map((data, index) => (
               <li
                 key={index}
                 className="rounded-md px-3 py-2 text-primary hover:text-secondary"

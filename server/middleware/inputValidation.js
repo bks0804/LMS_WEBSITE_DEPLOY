@@ -51,7 +51,7 @@ const signupValidation = (req, res, next) => {
   if (error) {
     return res.status(400).json({
       message: "Bad request from Signup Validation",
-      errors: error.details.map((err) => err.message),
+      errors: error.details?.map((err) => err.message),
     });
   }
 
@@ -69,7 +69,7 @@ const signinValidation = (req, res, next) => {
   if (error) {
     return res.status(400).json({
       message: "Bad request from Signin Validation",
-      errors: error.details.map((err) => err.message),
+      errors: error.details?.map((err) => err.message),
     });
   }
 

@@ -196,7 +196,7 @@ const courseCategory = [
 const CourseCategories = () => {
   return (
     <div className="max-w-7xl px-5 md:px-12 lg:px-0 mt-12 mx-auto gap-x-12 gap-y-14 grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3">
-      {courseCategory.map((category, index) => {
+      {courseCategory?.map((category, index) => {
         return (
           <a href="" className="relative" key={index}>
             <p

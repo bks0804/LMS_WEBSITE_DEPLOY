@@ -129,7 +129,7 @@ const AdminList = () => {
             </tr>
           </thead>
           <tbody>
-            {admins.map((admin, index) => {
+            {admins?.map((admin, index) => {
               return (
                 <tr
                   key={index}
