@@ -265,7 +265,7 @@ const Navbar = () => {
                       tabIndex="-1"
                     >
                       {["student", "admin", "superadmin"].includes(
-                        user.user.role
+                        user?.user?.role
                       ) && (
                         <Link
                           to="/myattendance"
@@ -278,7 +278,7 @@ const Navbar = () => {
                         </Link>
                       )}
 
-                      {["student", "admin"].includes(user.user.role) && (
+                      {["student", "admin"].includes(user?.user?.role) && (
                         <Link
                           to="/mylearning"
                           className="block px-4 py-2 mx-2 hover:rounded-md hover:bg-gray-100 text-md font-semibold text-primary"
@@ -327,7 +327,7 @@ const Navbar = () => {
                         </span>
                       </button>
 
-                      {["superadmin", "admin"].includes(user.user.role) && (
+                      {["superadmin", "admin"].includes(user?.user?.role) && (
                         <Link
                           to="/admin/dashboardanalytics"
                           className="block px-6 py-2 mx-2 mt-2 rounded-md bg-gray-600 text-md font-semibold text-white"
