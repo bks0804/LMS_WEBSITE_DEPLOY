@@ -7,7 +7,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon server/index.js",
     "client": "npm run dev --prefix clients",
-    "build": "cd clients && rm -rf node_modules dist && npm install && npm run build",
+    "build": "rm -rf node_modules && cd clients && rm -rf node_modules dist && cd .. && npm install && cd clients && npm install && npm run build",
     "start": "node server/index.js"
   },
   "author": "",
