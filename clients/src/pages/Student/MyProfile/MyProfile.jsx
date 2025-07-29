@@ -103,17 +103,12 @@ const MyProfile = () => {
       const token = localStorage.getItem("token");
       // const userId = user?.user._id;
       // console.log(userId);
-      const response = await axios.get(
-        `${
-          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
-        }/api/contactus/getqueryreply`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await axios.get(`/api/contactus/getqueryreply`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
 
       // console.log(response.data);
       setQueryReply(response.data.reply);

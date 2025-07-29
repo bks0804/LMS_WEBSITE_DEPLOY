@@ -53,9 +53,7 @@ const StudentList = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.put(
-        `${
-          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
-        }/api/user/${studentId}/updateStudentToAdmin`,
+        `/api/user/${studentId}/updateStudentToAdmin`,
         formdata,
         {
           headers: {

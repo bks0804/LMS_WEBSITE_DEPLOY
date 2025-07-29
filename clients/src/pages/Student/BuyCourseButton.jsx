@@ -58,9 +58,7 @@ const BuyCourseButton = ({ courseId }) => {
       handler: async (response) => {
         try {
           const verifyResponse = await axios.post(
-            `${
-              import.meta.env.VITE_FRONTEND_SERVER_API
-            }/api/payment/checkout/verify-payment`,
+            `/api/payment/checkout/verify-payment`,
             {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,

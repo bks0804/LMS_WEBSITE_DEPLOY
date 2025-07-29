@@ -57,9 +57,7 @@ const LectureTab = ({ lectureMode }) => {
     try {
       const response = await axios
         .put(
-          `${
-            import.meta.env.VITE_VITE_FRONTEND_SERVER_API
-          }/api/course/${courseId}/getcourselecture/${lectureId}`,
+          `/api/course/${courseId}/getcourselecture/${lectureId}`,
 
           data,
 
@@ -85,9 +83,7 @@ const LectureTab = ({ lectureMode }) => {
     try {
       const response = await axios
         .delete(
-          `${
-            import.meta.env.VITE_VITE_FRONTEND_SERVER_API
-          }/api/course/getcourselecture/${lectureId}`,
+          `/api/course/getcourselecture/${lectureId}`,
 
           {
             headers: {
@@ -109,9 +105,7 @@ const LectureTab = ({ lectureMode }) => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `${
-          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
-        }/api/course/getcourselecture/${lectureId}`,
+        `/api/course/getcourselecture/${lectureId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

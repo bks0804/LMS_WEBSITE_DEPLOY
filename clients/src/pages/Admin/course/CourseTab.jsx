@@ -23,14 +23,9 @@ const CourseTab = () => {
   useEffect(() => {
     const fetchCourse = async () => {
       try {
-        const response = await axios.get(
-          `${
-            import.meta.env.VITE_VITE_FRONTEND_SERVER_API
-          }/api/course/${courseId}/getcourse/`,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        );
+        const response = await axios.get(`/api/course/${courseId}/getcourse/`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
         const courseData = response.data;
         setData(courseData);
 
@@ -96,9 +91,7 @@ const CourseTab = () => {
 
     try {
       const response = await axios.put(
-        `${
-          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
-        }/api/course/${courseId}/updatecourse/`,
+        `/api/course/${courseId}/updatecourse/`,
         formData,
         {
           headers: {
@@ -118,9 +111,7 @@ const CourseTab = () => {
   const publishStatusHandler = async () => {
     try {
       const response = await axios.put(
-        `${
-          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
-        }/api/course/${courseId}/publish`,
+        `/api/course/${courseId}/publish`,
         { isPublished: !data.isPublished },
         {
           headers: {
@@ -141,9 +132,7 @@ const CourseTab = () => {
   const removeCourseHandler = async () => {
     try {
       const response = await axios.delete(
-        `${
-          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
-        }/api/course/${courseId}/course-remove`,
+        `/api/course/${courseId}/course-remove`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

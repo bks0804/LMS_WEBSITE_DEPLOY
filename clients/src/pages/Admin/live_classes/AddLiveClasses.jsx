@@ -14,9 +14,7 @@ const AddLiveClasses = () => {
     try {
       const response = await axios
         .post(
-          `${
-            import.meta.env.VITE_FRONTEND_SERVER_API
-          }/api/livecourse/createliveCourse`,
+          `/api/livecourse/createliveCourse`,
           {
             category,
             courseTitle,

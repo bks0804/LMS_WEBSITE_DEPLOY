@@ -27,17 +27,12 @@ const CourseProgress = () => {
         return;
       }
 
-      const response = await axios.get(
-        `${
-          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
-        }/api/course-progress/${courseId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await axios.get(`/api/course-progress/${courseId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
 
       setCourseData(response?.data?.data);
     } catch (error) {
@@ -69,9 +64,7 @@ const CourseProgress = () => {
       }
 
       await axios.post(
-        `${
-          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
-        }/api/course-progress/${courseId}/lecture/${lectureId}/view`,
+        `/api/course-progress/${courseId}/lecture/${lectureId}/view`,
         {},
         {
           headers: {
@@ -113,9 +106,7 @@ const CourseProgress = () => {
       }
 
       const response = await axios.post(
-        `${
-          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
-        }/api/course-progress/${courseId}/completed`,
+        `/api/course-progress/${courseId}/completed`,
         {},
         {
           headers: {
@@ -145,9 +136,7 @@ const CourseProgress = () => {
       }
 
       const response = await axios.post(
-        `${
-          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
-        }/api/course-progress/${courseId}/incompleted`,
+        `/api/course-progress/${courseId}/incompleted`,
         {},
         {
           headers: {
@@ -205,9 +194,7 @@ const CourseProgress = () => {
       }
 
       const res = await axios.put(
-        `${
-          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
-        }/api/course-progress/${courseId}/updateexistrating`,
+        `/api/course-progress/${courseId}/updateexistrating`,
         { rating, lectureId },
         {
           headers: {
@@ -237,9 +224,7 @@ const CourseProgress = () => {
       }
 
       const res = await axios.post(
-        `${
-          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
-        }/api/course-progress/${courseId}/getexistrating`,
+        `/api/course-progress/${courseId}/getexistrating`,
         {
           lectureId:
             currentLecture?._id ||
@@ -304,9 +289,7 @@ const CourseProgress = () => {
       }
 
       const res = await axios.post(
-        `${
-          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
-        }/api/course-progress/${courseId}/rate-lecture`,
+        `/api/course-progress/${courseId}/rate-lecture`,
         {
           lectureId:
             currentLecture?._id ||

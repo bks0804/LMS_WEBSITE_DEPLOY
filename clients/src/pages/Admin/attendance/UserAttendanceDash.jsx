@@ -70,9 +70,7 @@ const UserAttendanceDash = () => {
       const token = localStorage.getItem("token");
 
       const res = await axios.post(
-        `${
-          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
-        }/api/attendance/markedattendanceuser`,
+        `/api/attendance/markedattendanceuser`,
         { courseTitle, lectureTitle },
         {
           headers: {

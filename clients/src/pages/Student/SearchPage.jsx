@@ -48,16 +48,11 @@ const SearchPage = () => {
       if (sortByLevel) {
         queryString += `&sortByLevel=${encodeURIComponent(sortByLevel)}`;
       }
-      const res = await axios.get(
-        `${
-          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
-        }/api/course/search${queryString}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const res = await axios.get(`/api/course/search${queryString}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       setCourses(res.data.courses);
       setIsEmpty(res.data.courses?.length === 0);
