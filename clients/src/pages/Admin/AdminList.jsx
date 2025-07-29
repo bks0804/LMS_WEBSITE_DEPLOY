@@ -11,7 +11,7 @@ const AdminList = () => {
 
   const getAllAdmins = async () => {
     try {
-      const res = await axios.get("FRONTEND_SERVER_API/api/user/getalladmin");
+      const res = await axios.get(`/api/user/getalladmin`);
 
       // console.log(res.data.admins);
       setAdmins(res.data.admins);
@@ -43,15 +43,12 @@ const AdminList = () => {
 
       const token = localStorage.getItem("token");
 
-      const response = await axios.delete(
-        `FRONTEND_SERVER_API/api/user/${studentId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await axios.delete(`/api/user/${studentId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
       // console.log(response.data);
       setAdmins((prevList) =>
         prevList.filter((x) => x._id !== response.data.deleteUser._id)

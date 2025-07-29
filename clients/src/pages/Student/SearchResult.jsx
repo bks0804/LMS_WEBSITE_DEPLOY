@@ -21,8 +21,8 @@ const SearchResult = ({ course }) => {
           <p className="text-sm text-gray-700">
             Intructor:{" "}
             <span className="font-bold">
-              {course.creator?.name || course.creator?.firstName}{" "}
-              {course.creator?.lastName}
+              {course?.creator?.name || course?.creator?.firstName}{" "}
+              {course?.creator?.lastName}
             </span>{" "}
           </p>
           <h2 className="w-fit mt-2 md:mt-0">{course?.courseLevel}</h2>

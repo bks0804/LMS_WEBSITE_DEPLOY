@@ -37,7 +37,9 @@ const LiveLectureTab = ({ lectureMode }) => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `FRONTEND_SERVER_API/api/course/getcourselecture/${lectureId}`,
+        `${
+          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+        }/api/course/getcourselecture/${lectureId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -68,15 +70,11 @@ const LiveLectureTab = ({ lectureMode }) => {
     e.preventDefault();
 
     try {
-      const res = await axios.post(
-        "FRONTEND_SERVER_API/create-meeting",
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await axios.post(`/create-meeting`, formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       setMeetingLink(res.data.zoomMeetingData);
       setMeetingId(res.data.zoomMeetingData.id);
@@ -104,7 +102,9 @@ const LiveLectureTab = ({ lectureMode }) => {
     try {
       const response = await axios
         .put(
-          `FRONTEND_SERVER_API/api/course/${courseId}/getcourselecture/${lectureId}`,
+          `${
+            import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+          }/api/course/${courseId}/getcourselecture/${lectureId}`,
 
           data,
 

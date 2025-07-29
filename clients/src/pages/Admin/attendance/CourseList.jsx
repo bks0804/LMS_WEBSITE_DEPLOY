@@ -13,12 +13,9 @@ const CourseList = () => {
   const getAllCoursesHandle = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(
-        "FRONTEND_SERVER_API/api/course/published-courses",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      const response = await axios.get(`/api/course/published-courses`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       setGetCourses(response.data.courses || []);
     } catch (error) {
       console.error("Error fetching courses:", error);

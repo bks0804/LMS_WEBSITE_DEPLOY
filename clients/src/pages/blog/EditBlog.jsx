@@ -22,7 +22,9 @@ const EditBlog = () => {
     const fetchBlog = async () => {
       try {
         const response = await axios.get(
-          `FRONTEND_SERVER_API/api/blog/${blogId}/getblog`,
+          `${
+            import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+          }/api/blog/${blogId}/getblog`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -87,7 +89,9 @@ const EditBlog = () => {
 
     try {
       const response = await axios.put(
-        `FRONTEND_SERVER_API/api/blog/${blogId}/updateblog/`,
+        `${
+          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+        }/api/blog/${blogId}/updateblog/`,
         formData,
         {
           headers: {
@@ -107,7 +111,9 @@ const EditBlog = () => {
   const publishStatusHandler = async () => {
     try {
       const response = await axios.put(
-        `FRONTEND_SERVER_API/api/blog/${blogId}/publish`,
+        `${
+          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+        }/api/blog/${blogId}/publish`,
         { isPublished: !data.isPublished },
         {
           headers: {
@@ -128,7 +134,9 @@ const EditBlog = () => {
   const removeBlogHandler = async () => {
     try {
       const response = await axios.delete(
-        `FRONTEND_SERVER_API/api/blog/${blogId}/blog-remove`,
+        `${
+          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+        }/api/blog/${blogId}/blog-remove`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

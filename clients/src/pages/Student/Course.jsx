@@ -105,11 +105,11 @@ const Course = ({ course, index }) => {
                 <path d="M11 8.5v.889c0 1.718-1.343 3.111-3 3.111s-3-1.393-3-3.111V8.5m10.318 2.53s.485-.353 2.182-.353 2.182.352 2.182.352m-4.364 0V10L13.5 9l4-1.5 4 1.5-1.818 1v1.03m-4.364 0v.288a2.182 2.182 0 1 0 4.364 0v-.289M4.385 15.926c-.943.527-3.416 1.602-1.91 2.947C3.211 19.53 4.03 20 5.061 20h5.878c1.03 0 1.85-.47 2.586-1.127 1.506-1.345-.967-2.42-1.91-2.947-2.212-1.235-5.018-1.235-7.23 0M16 20h3.705c.773 0 1.387-.376 1.939-.902 1.13-1.076-.725-1.936-1.432-2.357A5.34 5.34 0 0 0 16 16.214" />
               </g>
             </svg>
-            <span>{course.enrolledStudents?.length} Students</span>
+            <span>{course?.enrolledStudents?.length} Students</span>
           </div>
           <div className="text-wrap text-base font-semibold">
-            {course.creator?.name || course.creator?.firstName}{" "}
-            {course.creator?.lastName}
+            {course?.creator?.name || course?.creator?.firstName}{" "}
+            {course?.creator?.lastName}
           </div>
         </div>
         <div key={index} className="flex items-center">
@@ -126,7 +126,7 @@ const Course = ({ course, index }) => {
             Enroll Now
           </span>
           <div className="text-red-600 text-3xl font-semibold text-nowrap">
-            ₹ {course.coursePrice}
+            ₹ {course?.coursePrice}
           </div>
         </div>
       </div>

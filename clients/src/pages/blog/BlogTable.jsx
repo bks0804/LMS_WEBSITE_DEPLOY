@@ -10,14 +10,11 @@ const BlogTable = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await axios.get(
-        "FRONTEND_SERVER_API/api/blog/getcreatedblog",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.get("/api/blog/getcreatedblog", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       setGetBlogs(response.data.blogs || []);
     } catch (error) {
       console.error("Error fetching blogs:", error);

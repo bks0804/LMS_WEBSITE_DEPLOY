@@ -14,7 +14,7 @@ const AddCourse = () => {
     try {
       const response = await axios
         .post(
-          "FRONTEND_SERVER_API/api/course/createCourse",
+          `/api/course/createCourse`,
           {
             category,
             courseTitle,

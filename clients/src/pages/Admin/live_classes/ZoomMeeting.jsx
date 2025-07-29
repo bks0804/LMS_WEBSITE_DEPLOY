@@ -29,15 +29,11 @@ export default function ScheduleMeetingForm() {
     e.preventDefault();
 
     try {
-      const res = await axios.post(
-        "FRONTEND_SERVER_API/create-meeting",
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await axios.post(`/create-meeting`, formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       setMeetingLink(res.data.zoomMeetingData);
       setMeetingId(res.data.zoomMeetingData.id);
@@ -57,7 +53,7 @@ export default function ScheduleMeetingForm() {
     if (!meetingId) return;
 
     try {
-      const res = await axios.get(`FRONTEND_SERVER_API/meeting/${meetingId}`);
+      const res = await axios.get(`/meeting/${meetingId}`);
       // setMeeting(res.data);
     } catch (error) {
       console.error("Failed to fetch meeting", error);

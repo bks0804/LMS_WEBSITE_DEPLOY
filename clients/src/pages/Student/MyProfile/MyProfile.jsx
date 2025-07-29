@@ -40,16 +40,12 @@ const MyProfile = () => {
 
       const token = localStorage.getItem("token");
 
-      const response = await axios.put(
-        "FRONTEND_SERVER_API/api/user/profile/update",
-        formdata,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await axios.put(`/api/user/profile/update`, formdata, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
       // console.log(response.data);
       setUser(response.data);
       setEditProfileModel(false);
@@ -67,7 +63,7 @@ const MyProfile = () => {
         return;
       }
 
-      const res = await axios.get("FRONTEND_SERVER_API/api/user/profile", {
+      const res = await axios.get(`/api/user/profile`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -108,7 +104,9 @@ const MyProfile = () => {
       // const userId = user?.user._id;
       // console.log(userId);
       const response = await axios.get(
-        `FRONTEND_SERVER_API/api/contactus/getqueryreply`,
+        `${
+          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+        }/api/contactus/getqueryreply`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

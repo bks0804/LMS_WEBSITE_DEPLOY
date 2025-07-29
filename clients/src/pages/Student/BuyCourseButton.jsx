@@ -23,7 +23,7 @@ const BuyCourseButton = ({ courseId }) => {
       }
 
       const response = await axios.post(
-        "FRONTEND_SERVER_API/api/payment/checkout/create-checkout-session",
+        `/api/payment/checkout/create-checkout-session`,
         { courseId },
         {
           headers: {
@@ -58,7 +58,9 @@ const BuyCourseButton = ({ courseId }) => {
       handler: async (response) => {
         try {
           const verifyResponse = await axios.post(
-            "FRONTEND_SERVER_API/api/payment/checkout/verify-payment",
+            `${
+              import.meta.env.VITE_FRONTEND_SERVER_API
+            }/api/payment/checkout/verify-payment`,
             {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,

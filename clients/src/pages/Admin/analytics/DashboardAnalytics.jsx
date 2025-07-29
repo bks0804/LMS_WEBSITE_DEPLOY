@@ -21,15 +21,12 @@ const DashboardAnalytics = () => {
         return;
       }
 
-      const res = await axios.get(
-        "FRONTEND_SERVER_API/api/payment/purchasedcourse",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await axios.get(`/api/payment/purchasedcourse`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
       setCourse(res.data);
     } catch (error) {
       console.error("Error fetching courses:", error.response?.data || error);
@@ -40,8 +37,8 @@ const DashboardAnalytics = () => {
   }, []);
 
   const courseData = course?.purchasedCourse?.map((course) => ({
-    name: course.courseId?.courseTitle,
-    price: course.courseId?.coursePrice,
+    name: course?.courseId?.courseTitle,
+    price: course?.courseId?.coursePrice,
   }));
 
   const totalRevenue = course?.purchasedCourse?.reduce(
@@ -49,7 +46,7 @@ const DashboardAnalytics = () => {
     0
   );
 
-  const totalSales = course?.purchasedCourse?.length;
+  const totalSales = course?.purchasedCourse?.length || 0;
 
   return (
     <div className="grid gap-6 grid-cols-1 lg:grid-cols-2 mt-24 md:ml-64 p-5 sm:p-8">

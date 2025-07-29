@@ -49,7 +49,9 @@ const SearchPage = () => {
         queryString += `&sortByLevel=${encodeURIComponent(sortByLevel)}`;
       }
       const res = await axios.get(
-        `FRONTEND_SERVER_API/api/course/search${queryString}`,
+        `${
+          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+        }/api/course/search${queryString}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

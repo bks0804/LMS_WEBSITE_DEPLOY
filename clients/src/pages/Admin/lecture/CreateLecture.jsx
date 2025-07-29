@@ -17,7 +17,9 @@ const CreateLecture = () => {
     try {
       const response = await axios
         .post(
-          `FRONTEND_SERVER_API/api/course/${courseId}/createlecture`,
+          `${
+            import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+          }/api/course/${courseId}/createlecture`,
 
           { lectureTitle },
 
@@ -43,7 +45,9 @@ const CreateLecture = () => {
 
     try {
       const response = await axios.get(
-        `FRONTEND_SERVER_API/api/course/${courseId}/getcourselecture`,
+        `${
+          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+        }/api/course/${courseId}/getcourselecture`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

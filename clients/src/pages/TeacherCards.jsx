@@ -12,7 +12,7 @@ const TeacherCards = () => {
 
   const getAllAdmins = async () => {
     try {
-      const res = await axios.get("FRONTEND_SERVER_API/api/user/getalladmin");
+      const res = await axios.get(`/api/user/getalladmin`);
       // console.log(res.data);
       // setMyCourse(res.data.course);
       setAdmins(res.data.admins);
@@ -45,7 +45,7 @@ const TeacherCards = () => {
         return;
       }
       const res = await axios.put(
-        "FRONTEND_SERVER_API/api/user/addteacherrating",
+        `/api/user/addteacherrating`,
         { rating, adminId },
         {
           headers: {

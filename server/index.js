@@ -1,50 +1,47 @@
-const express = require("express");
-const app = express();
 require("dotenv").config();
-// const dotenv = require("dotenv");
-const PORT = process.env.PORT;
+
+const express = require("express");
+const cors = require("cors");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const axios = require("axios");
+require("dotenv").config();
+
 const connectDB = require("./config/db");
+
+// Routes
 const userRoutes = require("./routes/userRoute");
-const usercontactUsRoutes = require("./routes/contactUsRoutes");
+const contactUsRoutes = require("./routes/contactUsRoutes");
 const mediaRoutes = require("./routes/mediaRoute");
 const courseRoutes = require("./routes/courseRoute");
 const paymentRoutes = require("./routes/coursePurchaseRoute");
 const courseProgressRoute = require("./routes/courseProgressRoute");
 const blogRoutes = require("./routes/blogRoutes");
 const attendanceRoute = require("./routes/attendanceRoutes");
-const cors = require("cors");
-const cookieParser = require("cookie-parser");
-// const jwt = require("jsonwebtoken");
-// const zoomRoutes = require("./controllers/zoom");
-// const fetch = require("node-fetch");
-const axios = require("axios");
+
 const { generateZoomAccessToken } = require("./utils/zoomToken");
-// const Meeting = require("./models/meetingModel");
 
-const path = require("path");
-const _dirname = path.resolve();
+const app = express();
+const PORT = process.env.PORT;
 
-// Middleware
-// app.use((req, res, next) => {
-//   res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
-//   res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
-//   next();
-// });
+// ======= Connect Database =======
+connectDB();
 
-// app.use(
-//   cors({
-//     origin: "FRONTEND_SERVER_API",
-//     credentials: true,
-//   })
-// );
+// ======= Middlewares =======
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
-// Database Connection
-connectDB();
-
-// api
+// ======= API Routes =======
+app.use("/api/media", mediaRoutes);
+app.use("/api/user", userRoutes);
+app.use("/api/course", courseRoutes);
+app.use("/api/payment", paymentRoutes);
+app.use("/api/course-progress", courseProgressRoute);
+app.use("/api/contactus", contactUsRoutes);
+app.use("/api/blog", blogRoutes);
+app.use("/api/attendance", attendanceRoute);
 
 app.post("/create-meeting", async (req, res) => {
   try {
@@ -137,25 +134,17 @@ app.get("/meeting/:id", async (req, res) => {
   }
 });
 
-app.use("/api/media", mediaRoutes);
-app.use("/api/user", userRoutes);
-app.use("/api/course", courseRoutes);
-app.use("/api/payment", paymentRoutes);
-app.use("/api/course-progress", courseProgressRoute);
-app.use("/api/contactus", usercontactUsRoutes);
-app.use("/api/blog", blogRoutes);
-app.use("/api/attendance", attendanceRoute);
+// ======= SERVE FRONTEND IN PRODUCTION =======
+if (process.env.NODE_ENV === "production") {
+  const clientPath = path.join(__dirname, "../clients/dist");
+  app.use(express.static(clientPath));
 
-// app.use("/api/zoom", zoomRoutes);
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(clientPath, "index.html"));
+  });
+}
 
-/////
-
-app.use(express.static(path.join(_dirname, "/clients/dist")));
-
-app.get("*", (_, res) => {
-  res.sendFile(path.resolve(_dirname, "clients", "dist", "index.html"));
-});
-
+// ======= Start Server =======
 app.listen(PORT, () => {
   console.log("Server is running on : " + PORT);
 });

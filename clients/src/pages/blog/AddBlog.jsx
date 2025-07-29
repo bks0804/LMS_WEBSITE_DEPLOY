@@ -16,7 +16,7 @@ const AddBlog = () => {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.post(
-        "FRONTEND_SERVER_API/api/blog/blogcreate",
+        "/api/blog/blogcreate",
         {
           blogTitle,
           category,

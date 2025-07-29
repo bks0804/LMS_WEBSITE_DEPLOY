@@ -79,10 +79,7 @@ const SignUp = () => {
     }
 
     try {
-      const response = await axios.post(
-        "FRONTEND_SERVER_API/api/user/register",
-        formData
-      );
+      const response = await axios.post(`/api/user/register`, formData);
       // console.log(response.data);
       alert("User Register SuccessFully");
       setFormData({

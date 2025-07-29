@@ -24,7 +24,7 @@ const Navbar = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.delete(
-        `FRONTEND_SERVER_API/api/contactus/${queryId}/deletequery`,
+        `/api/contactus/${queryId}/deletequery`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -45,7 +45,7 @@ const Navbar = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.get(
-        "FRONTEND_SERVER_API/api/contactus/getallquery",
+        `/api/contactus/getallquery`,
 
         {
           headers: {
@@ -112,7 +112,7 @@ const Navbar = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.put(
-        `FRONTEND_SERVER_API/api/contactus/${queryId}/replytoquery`,
+        `/api/contactus/${queryId}/replytoquery`,
         { replyText, userId },
 
         {
@@ -190,14 +190,15 @@ const Navbar = () => {
 
               <div className="relative flex items-center">
                 <ul className="hidden md:flex space-x-5 text-lg font-bold">
-                  {NavData?.map((data, index) => (
-                    <li
-                      key={index}
-                      className="rounded-md px-3 py-2 text-primary hover:text-secondary"
-                    >
-                      <Link to={data.path}>{data.title}</Link>
-                    </li>
-                  ))}
+                  {Array.isArray(NavData) &&
+                    NavData?.map((data, index) => (
+                      <li
+                        key={index}
+                        className="rounded-md px-3 py-2 text-primary hover:text-secondary"
+                      >
+                        <Link to={data?.path}>{data?.title}</Link>
+                      </li>
+                    ))}
                 </ul>
 
                 <button
@@ -209,7 +210,7 @@ const Navbar = () => {
                     user?.user?.photoUrl ? (
                       <img
                         className="h-12 w-12 md:h-14 md:w-14 rounded-full"
-                        src={user.user?.photoUrl}
+                        src={user?.user?.photoUrl}
                         alt=""
                       />
                     ) : (
@@ -453,11 +454,11 @@ const Navbar = () => {
                               >
                                 {item.fullName}
                               </th>
-                              <td className="px-6 py-4">{item.email}</td>
-                              <td className="px-6 py-4">{item.subject}</td>
-                              <td className="px-6 py-4">{item.phoneNumber}</td>
+                              <td className="px-6 py-4">{item?.email}</td>
+                              <td className="px-6 py-4">{item?.subject}</td>
+                              <td className="px-6 py-4">{item?.phoneNumber}</td>
                               <td className="px-6 py-4 text-start">
-                                {item.message}
+                                {item?.message}
                               </td>
                               {/* Reply section */}
                               <td className="px-6 py-4">
@@ -474,7 +475,7 @@ const Navbar = () => {
                                     type="button"
                                     className="text-blue-600 hover:underline font-medium"
                                     onClick={() =>
-                                      handleReplyText(item.userId, item._id)
+                                      handleReplyText(item?.userId, item._id)
                                     }
                                   >
                                     Reply
@@ -535,7 +536,7 @@ const Navbar = () => {
                 key={index}
                 className="rounded-md px-3 py-2 text-primary hover:text-secondary"
               >
-                <Link to={data.path}>{data.title}</Link>
+                <Link to={data?.path}>{data?.title}</Link>
               </li>
             ))}
           </ul>

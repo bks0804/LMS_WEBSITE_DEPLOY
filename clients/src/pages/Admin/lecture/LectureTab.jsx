@@ -13,7 +13,7 @@ const LectureTab = ({ lectureMode }) => {
   const navigate = useNavigate();
   const params = useParams();
   const { courseId, lectureId } = params;
-  const MEDIA_API = "FRONTEND_SERVER_API/api/media";
+  const MEDIA_API = "/api/media";
 
   const fileChangeHandler = async (e) => {
     const file = e.target.files[0];
@@ -57,7 +57,9 @@ const LectureTab = ({ lectureMode }) => {
     try {
       const response = await axios
         .put(
-          `FRONTEND_SERVER_API/api/course/${courseId}/getcourselecture/${lectureId}`,
+          `${
+            import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+          }/api/course/${courseId}/getcourselecture/${lectureId}`,
 
           data,
 
@@ -83,7 +85,9 @@ const LectureTab = ({ lectureMode }) => {
     try {
       const response = await axios
         .delete(
-          `FRONTEND_SERVER_API/api/course/getcourselecture/${lectureId}`,
+          `${
+            import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+          }/api/course/getcourselecture/${lectureId}`,
 
           {
             headers: {
@@ -105,7 +109,9 @@ const LectureTab = ({ lectureMode }) => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `FRONTEND_SERVER_API/api/course/getcourselecture/${lectureId}`,
+        `${
+          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+        }/api/course/getcourselecture/${lectureId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

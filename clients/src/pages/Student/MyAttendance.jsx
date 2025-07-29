@@ -11,7 +11,7 @@ const MyAttendance = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.post(
-        "FRONTEND_SERVER_API/api/user/attendance/mark",
+        `/api/user/attendance/mark`,
         { status: "Present" },
         {
           headers: {
@@ -30,15 +30,12 @@ const MyAttendance = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await axios.get(
-        "FRONTEND_SERVER_API/api/attendance/getexstedattendancedetail",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await axios.get(`/api/attendance/getexstedattendancedetail`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
       setAttendanceDetails(res.data);
     } catch (err) {
       console.error(
@@ -89,7 +86,7 @@ const MyAttendance = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.post(
-        "FRONTEND_SERVER_API/api/attendance/markstudentattendance",
+        `/api/attendance/markstudentattendance`,
         {
           attendanceId,
           status: "Present",

@@ -11,9 +11,8 @@ const Courses = () => {
 
   const getPublishedCourse = async () => {
     try {
-      const res = await axios.get(
-        "FRONTEND_SERVER_API/api/course/published-courses"
-      );
+      const res = await axios.get(`/api/course/published-courses`);
+      console.log({ res });
       setCourses(res.data.courses);
     } catch (error) {
       console.error("Error fetching courses:", error.response?.data || error);

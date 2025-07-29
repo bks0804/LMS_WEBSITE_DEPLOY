@@ -22,14 +22,11 @@ const SignIn = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "FRONTEND_SERVER_API/api/user/login",
-        formData
-      );
+      const response = await axios.post(`/api/user/login`, formData);
       // console.log(response.data.user.role);
 
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("userRole", response.data.user.role);
+      localStorage.setItem("token", response?.data?.token);
+      localStorage.setItem("userRole", response?.data?.user?.role);
       setUser(response.data);
       setFormData({ email: "", password: "" });
       navigate("/");
@@ -91,12 +88,12 @@ const SignIn = () => {
                   Password
                 </label>
                 <div className="text-sm">
-                  <a
+                  <Link
                     to="#"
                     className="font-semibold text-indigo-600 hover:text-indigo-500"
                   >
                     Forgot password?
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="mt-2">

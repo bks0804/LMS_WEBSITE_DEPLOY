@@ -14,7 +14,7 @@ const MyLearning = () => {
         return;
       }
 
-      const res = await axios.get("FRONTEND_SERVER_API/api/user/profile", {
+      const res = await axios.get(`/api/user/profile`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",

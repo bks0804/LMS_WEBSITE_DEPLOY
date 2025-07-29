@@ -15,12 +15,9 @@ const BlogDetails = () => {
     const getBlogDetailsById = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get(
-          `FRONTEND_SERVER_API/api/blog/${blogId}/getblog`,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        );
+        const response = await axios.get(`/api/blog/${blogId}/getblog`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
         const blogData = response.data;
         setBlogDetails(blogData);
       } catch (error) {
@@ -35,15 +32,12 @@ const BlogDetails = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await axios.get(
-        `FRONTEND_SERVER_API/api/blog/published-blogs`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await axios.get(`/api/blog/published-blogs`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
       if (response.data?.blogs) {
         setPublishedBlogs(response.data.blogs);
       }
@@ -58,7 +52,7 @@ const BlogDetails = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `FRONTEND_SERVER_API/api/blog/${blogId}/getallcomment`,
+        `/api/blog/${blogId}/getallcomment`,
 
         {
           headers: {
@@ -84,7 +78,7 @@ const BlogDetails = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        `FRONTEND_SERVER_API/api/blog/${blogId}/comment`,
+        `/api/blog/${blogId}/comment`,
         {
           message: commentMessage,
         },
@@ -195,8 +189,11 @@ const BlogDetails = () => {
                       )}
                     </span>
                   </div>
-                  <p className="py-5 text-[#505050] font-medium">
-                    {comment.message}
+                  <p
+                    className="py-5 text-[#505050] font-medium"
+                    dangerouslySetInnerHTML={{ __html: comment.message }}
+                  >
+                    {/* {comment.message} */}
                   </p>
                   {/* <Link to="" className="text-lg font-medium">
                     Reply

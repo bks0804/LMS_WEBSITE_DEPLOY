@@ -11,7 +11,7 @@ const StudentList = () => {
   const [selectedUser, setSelectedUser] = useState(false);
   const getAllStudents = async () => {
     try {
-      const res = await axios.get("FRONTEND_SERVER_API/api/user/getallstudent");
+      const res = await axios.get(`/api/user/getallstudent`);
 
       setStudents(res.data.students);
     } catch (error) {
@@ -53,7 +53,9 @@ const StudentList = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.put(
-        `FRONTEND_SERVER_API/api/user/${studentId}/updateStudentToAdmin`,
+        `${
+          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+        }/api/user/${studentId}/updateStudentToAdmin`,
         formdata,
         {
           headers: {
@@ -88,15 +90,12 @@ const StudentList = () => {
 
       const token = localStorage.getItem("token");
 
-      const response = await axios.delete(
-        `FRONTEND_SERVER_API/api/user/${studentId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await axios.delete(`/api/user/${studentId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
       setStudents((prevList) =>
         prevList.filter((x) => x._id !== response.data.deleteUser._id)
       );

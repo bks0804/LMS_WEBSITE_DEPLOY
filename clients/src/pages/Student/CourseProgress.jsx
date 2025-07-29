@@ -28,7 +28,9 @@ const CourseProgress = () => {
       }
 
       const response = await axios.get(
-        `FRONTEND_SERVER_API/api/course-progress/${courseId}`,
+        `${
+          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+        }/api/course-progress/${courseId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -67,7 +69,9 @@ const CourseProgress = () => {
       }
 
       await axios.post(
-        `FRONTEND_SERVER_API/api/course-progress/${courseId}/lecture/${lectureId}/view`,
+        `${
+          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+        }/api/course-progress/${courseId}/lecture/${lectureId}/view`,
         {},
         {
           headers: {
@@ -109,7 +113,9 @@ const CourseProgress = () => {
       }
 
       const response = await axios.post(
-        `FRONTEND_SERVER_API/api/course-progress/${courseId}/completed`,
+        `${
+          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+        }/api/course-progress/${courseId}/completed`,
         {},
         {
           headers: {
@@ -139,7 +145,9 @@ const CourseProgress = () => {
       }
 
       const response = await axios.post(
-        `FRONTEND_SERVER_API/api/course-progress/${courseId}/incompleted`,
+        `${
+          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+        }/api/course-progress/${courseId}/incompleted`,
         {},
         {
           headers: {
@@ -197,7 +205,9 @@ const CourseProgress = () => {
       }
 
       const res = await axios.put(
-        `FRONTEND_SERVER_API/api/course-progress/${courseId}/updateexistrating`,
+        `${
+          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+        }/api/course-progress/${courseId}/updateexistrating`,
         { rating, lectureId },
         {
           headers: {
@@ -227,7 +237,9 @@ const CourseProgress = () => {
       }
 
       const res = await axios.post(
-        `FRONTEND_SERVER_API/api/course-progress/${courseId}/getexistrating`,
+        `${
+          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+        }/api/course-progress/${courseId}/getexistrating`,
         {
           lectureId:
             currentLecture?._id ||
@@ -264,7 +276,7 @@ const CourseProgress = () => {
     }
 
     try {
-      const res = await axios.get(`FRONTEND_SERVER_API/meeting/${meetingId}`);
+      const res = await axios.get(`/meeting/${meetingId}`);
       setMeeting(res.data);
     } catch (error) {
       console.error("Failed to fetch meeting", error);
@@ -292,7 +304,9 @@ const CourseProgress = () => {
       }
 
       const res = await axios.post(
-        `FRONTEND_SERVER_API/api/course-progress/${courseId}/rate-lecture`,
+        `${
+          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+        }/api/course-progress/${courseId}/rate-lecture`,
         {
           lectureId:
             currentLecture?._id ||
@@ -337,7 +351,7 @@ const CourseProgress = () => {
       }
 
       const res = await axios.post(
-        "FRONTEND_SERVER_API/api/user/attendance/mark",
+        `/api/user/attendance/mark`,
         {
           status: "Present",
           courseId,

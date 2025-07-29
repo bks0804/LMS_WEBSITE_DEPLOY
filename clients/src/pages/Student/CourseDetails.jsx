@@ -20,7 +20,9 @@ const CourseDetails = () => {
       }
 
       const response = await axios.get(
-        `FRONTEND_SERVER_API/api/payment/course/${courseId}/detail-with-status`,
+        `${
+          import.meta.env.VITE_VITE_FRONTEND_SERVER_API
+        }/api/payment/course/${courseId}/detail-with-status`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

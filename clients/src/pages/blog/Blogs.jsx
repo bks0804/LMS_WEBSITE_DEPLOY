@@ -11,15 +11,12 @@ const Blogs = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await axios.get(
-        `FRONTEND_SERVER_API/api/blog/published-blogs`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await axios.get(`/api/blog/published-blogs`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
       if (response.data?.blogs) {
         setPublishedBlogs(response.data.blogs);
       }
