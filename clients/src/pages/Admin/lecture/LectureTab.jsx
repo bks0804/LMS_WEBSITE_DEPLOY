@@ -14,7 +14,7 @@ const LectureTab = ({ lectureMode }) => {
   const params = useParams();
   const { courseId, lectureId } = params;
   const MEDIA_API = "/api/media";
-
+  console.log(uploadVideoInfo);
   const fileChangeHandler = async (e) => {
     const file = e.target.files[0];
 
@@ -120,7 +120,7 @@ const LectureTab = ({ lectureMode }) => {
       setUploadVideoInfo(lecture?.videoInfo || null);
       setIsFree(lecture?.isPreviewFree || false);
     } catch (error) {
-      // console.log("Error fetching lecture:", error);
+      console.log("Error fetching lecture:", error);
     }
   };
 

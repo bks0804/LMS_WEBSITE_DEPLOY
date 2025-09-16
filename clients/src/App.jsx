@@ -43,6 +43,8 @@ import UserAttendanceInCourses from "./pages/Admin/attendance/UserAttendanceInCo
 import UserAttendanceDash from "./pages/Admin/attendance/UserAttendanceDash";
 import AddBlog from "./pages/blog/AddBlog";
 import EditBlog from "./pages/blog/EditBlog";
+import ForgetPassword from "./pages/ForgetPassword";
+import ResetPassword from "./pages/ResetPassword";
 function App() {
   return (
     <>
@@ -104,6 +106,11 @@ function App() {
             <Route path="/footer" element={<Footer />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/blogdetails" element={<BlogDetails />} />
+            <Route path="/forget-password" element={<ForgetPassword />} />
+            <Route
+              path="/reset-password/:id/:token"
+              element={<ResetPassword />}
+            />
             <Route
               path="/signup"
               element={
@@ -127,10 +134,7 @@ function App() {
               path="/course-details/:courseId"
               element={<CourseDetails />}
             />
-             <Route
-              path="/:blogId/blog-details"
-              element={<BlogDetails />}
-            />
+            <Route path="/:blogId/blog-details" element={<BlogDetails />} />
             <Route
               path="/course-progress/:courseId"
               element={
@@ -143,7 +147,6 @@ function App() {
             <Route path="/myprofile" element={<MyProfile />} />
             <Route path="/addcourse" element={<AddCourse />} />
             <Route path="/admin/addblog" element={<AddBlog />} />
-
             <Route path="/myattendance" element={<MyAttendance />} />
             <Route
               path="/dashboard"
@@ -162,10 +165,7 @@ function App() {
               path="/admin/editcourse/:courseId"
               element={<EditCourse />}
             />
-            <Route
-              path="/admin/editblog/:blogId"
-              element={<EditBlog />}
-            />
+            <Route path="/admin/editblog/:blogId" element={<EditBlog />} />
             <Route
               path="/admin/editcourse/:courseId/createlecture"
               element={<CreateLecture />}

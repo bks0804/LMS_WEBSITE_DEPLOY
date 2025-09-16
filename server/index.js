@@ -1,5 +1,5 @@
 require("dotenv").config();
-
+const history = require("connect-history-api-fallback");
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
@@ -32,7 +32,11 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(
+  history({
+    disableDotRule: true, // 👈 fixes `/reset-password/:id/:token`
+  })
+);
 // ======= API Routes =======
 app.use("/api/media", mediaRoutes);
 app.use("/api/user", userRoutes);

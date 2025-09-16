@@ -10,7 +10,10 @@ const Carousel = () => {
       onEnter={() => setCounterOn(true)}
       onLeave={() => setCounterOn(false)}
     >
-      <div className="mt-20 grid space-x-16 grid-col-1 lg:grid-cols-2 items-center max-w-7xl space-y-12 lg:space-y-0 mx-auto px-5 md:px-16 lg:px-5 ">
+      <div
+        className="mt-20 grid space-x-16 grid-col-1 lg:grid-cols-2 items-center max-w-7xl space-y-12 lg:space-y-0 mx-auto px-5 md:px-16 lg:px-5 "
+        id="make-fullscreen"
+      >
         <div className="mt-5">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-[#1f1c35] py-3 text-wrap">
             Explore Your Learning

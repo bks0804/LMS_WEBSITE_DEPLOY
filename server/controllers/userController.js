@@ -20,6 +20,7 @@ require("dotenv").config();
 const dotenv = require("dotenv");
 const { generateUserUniqueId } = require("../utils/generateUniqueId");
 const Attendance = require("../models/attendanceModel");
+const jwt = require("jsonwebtoken");
 
 cloudinary.config({
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -587,6 +588,153 @@ const getAttendanceDetailToAdmin = async (req, res) => {
 //     res.status(500).json({ success: false, error: "Something went wrong" });
 //   }
 // };
+
+const forgetPassword = async (req, res) => {
+  const { email } = req.body;
+  console.log(email);
+  try {
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    const token = jwt.sign({ id: user._id }, "jwt_secret_key", {
+      expiresIn: "1h",
+    });
+
+    user.token = token;
+    await user.save();
+
+    console.log(user);
+    let nodemailer = require("nodemailer");
+
+    let transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "sahubrajkishor444@gmail.com",
+        pass: "ivlv kksr wmdv xycm",
+      },
+    });
+
+    let mailOptions = {
+      from: "sahubrajkishor444@gmail.com",
+      to: "radhebhaiya064@gmail.com",
+      subject: "Sending Email using Node.js",
+      text: `http://localhost:5173/reset-password/${user._id}/${token}`,
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("Email sent: " + info.response);
+      }
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: "link send to the email",
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// const resetPassword = async (req, res) => {
+//   try {
+//     const { id, token } = req.params;
+//     const { password } = req.body;
+
+//     // ✅ Verify JWT
+//     const decoded = jwt.verify(token, "jwt_secret_key");
+
+//     // match token in Database
+//     const user = await User.findById(id);
+//     if (!user) {
+//       return res.status(404).json({
+//         success: true,
+//         message: "User not found!",
+//       });
+//     }
+
+//     if (user.token === token) {
+//       console.log("token match");
+//     } else {
+//       return res.status(400).json({
+//         success: true,
+//         message: "plesae forget password again",
+//       });
+//     }
+
+//     // ✅ Hash the password
+//     const hashedPassword = await bcrypt.hash(password, 10);
+
+//     // ✅ Update user password
+//     await User.findByIdAndUpdate(id, { password: hashedPassword });
+
+//     const user1 = await User.findByIdAndDelete(id, { token });
+//     console.log(user1);
+
+//     return res
+//       .status(200)
+//       .json({ success: true, message: "User password reset successfully" });
+//   } catch (err) {
+//     console.error("Reset password error:", err.message);
+//     return res.status(400).json({ Status: "Error", Message: err.message });
+//   }
+// };
+
+const resetPassword = async (req, res) => {
+  try {
+    const { id, token } = req.params;
+    const { password } = req.body;
+
+    // ✅ Verify JWT
+    const decoded = jwt.verify(token, "jwt_secret_key");
+
+    // ✅ Find user
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found!",
+      });
+    }
+
+    // ✅ Check if token matches the one in DB
+    if (user.token !== token) {
+      return res.status(400).json({
+        success: false,
+        message:
+          "Invalid or expired token. Please request password reset again.",
+      });
+    }
+
+    // ✅ Hash new password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // ✅ Update password & clear reset token
+    user.password = hashedPassword;
+    user.token = null; // clear the token so it can't be reused
+    await user.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Password reset successfully",
+    });
+  } catch (err) {
+    console.error("Reset password error:", err.message);
+    return res.status(400).json({
+      success: false,
+      message: err.message,
+    });
+  }
+};
+
 module.exports = {
   register,
   login,
@@ -599,4 +747,6 @@ module.exports = {
   addTeacherRating,
   userAttendance,
   getAttendanceDetailToAdmin,
+  forgetPassword,
+  resetPassword,
 };

@@ -22,6 +22,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+
     role: {
       type: String,
       enum: ["student", "superadmin", "admin"],
@@ -88,7 +89,9 @@ const userSchema = new mongoose.Schema(
         rating: Number,
       },
     ],
-    
+    token: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

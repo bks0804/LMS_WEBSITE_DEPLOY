@@ -251,7 +251,7 @@ const editLecture = async (req, res) => {
     const { lectureTitle, videoInfo, isPreviewFree, meetingId, lectureType } =
       req.body;
     const { courseId, lectureId } = req.params;
-    // console.log(req.body);
+    console.log(req.body);
 
     const lecture = await Lecture.findById(lectureId);
     if (!lecture) {
@@ -279,7 +279,7 @@ const editLecture = async (req, res) => {
     if (course && !course.lectures.includes(lecture._id)) {
       course.lectures.push(lecture._id);
     }
-    // console.log(lecture);
+    console.log(lecture);
 
     return res
       .status(200)

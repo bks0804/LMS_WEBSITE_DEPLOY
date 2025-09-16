@@ -94,7 +94,6 @@ const BlogDetails = () => {
       console.error("Error submitting comment:", err);
     }
   };
-
   const Categaries = [
     { name: "Fronted" },
     { name: "Backend" },
@@ -156,9 +155,10 @@ const BlogDetails = () => {
           </span>
         </div>
 
-        <p className="text-[#505050] text-lg px-3 sm:px-6 md:px-12">
-          {blogDetails.description}
-        </p>
+        <p
+          className="text-[#505050] text-lg px-3 sm:px-6 md:px-12"
+          dangerouslySetInnerHTML={{ __html: blogDetails.description }}
+        ></p>
 
         <div className="border-2 border-gray-500 mt-12"></div>
 
@@ -167,7 +167,10 @@ const BlogDetails = () => {
 
           {getComments?.map((comment, index) => {
             return (
-              <div className="flex items-center gap-8 md:gap-16 lg:gap-20 mt-4 sm:mt-8 md:mt-16">
+              <div
+                key={index}
+                className="flex items-center gap-8 md:gap-16 lg:gap-20 mt-4 sm:mt-8 md:mt-16"
+              >
                 <img
                   src={comment.userId.photoUrl || "./teacher/team-1.png"}
                   className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full object-cover aspect-square"
@@ -189,11 +192,8 @@ const BlogDetails = () => {
                       )}
                     </span>
                   </div>
-                  <p
-                    className="py-5 text-[#505050] font-medium"
-                    dangerouslySetInnerHTML={{ __html: comment.message }}
-                  >
-                    {/* {comment.message} */}
+                  <p className="py-5 text-[#505050] font-medium">
+                    {comment.message}
                   </p>
                   {/* <Link to="" className="text-lg font-medium">
                     Reply
