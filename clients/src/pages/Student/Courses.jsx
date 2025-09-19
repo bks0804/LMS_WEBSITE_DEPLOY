@@ -35,7 +35,7 @@ const Courses = () => {
       <div className="max-w-7xl mx-auto justify-center gap-6 px-3 sm:px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {courses?.length > 0 ? (
           courses?.map((course, index) => (
-            <Course key={course._id} course={course} />
+            <Course key={index} course={course} />
           ))
         ) : (
           <p className="text-center text-gray-500">No courses available</p>

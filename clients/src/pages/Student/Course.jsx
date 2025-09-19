@@ -1,7 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
-const Course = ({ course, index }) => {
+const Course = ({ course }) => {
   const calculateAvgRating = (lectures) => {
     if (!lectures || lectures?.length === 0) return 0;
 
@@ -34,7 +33,6 @@ const Course = ({ course, index }) => {
           width={24}
           height={24}
           viewBox="0 0 24 24"
-          key={index}
         >
           <path
             fill="#f7b42f"
@@ -62,7 +60,6 @@ const Course = ({ course, index }) => {
           width={24}
           height={24}
           viewBox="0 0 24 24"
-          key={index}
         >
           <path
             fill="#e1dfdf"
@@ -112,8 +109,10 @@ const Course = ({ course, index }) => {
             {course?.creator?.lastName}
           </div>
         </div>
-        <div key={index} className="flex items-center">
-          {stars}
+        <div className="flex items-center">
+          {stars.map((svgItem, index) => {
+            return <div key={index}>{svgItem}</div>;
+          })}
           <span className="text-[#4f536c] text-lg font-normal ml-3">
             ({avgRating}/5 Ratings)
           </span>

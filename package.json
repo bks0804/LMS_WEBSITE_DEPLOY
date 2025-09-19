@@ -7,7 +7,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon server/index.js",
     "client": "npm run dev --prefix clients",
-    "build": "rm -rf node_modules && cd clients && rm -rf node_modules dist && cd .. && npm install && cd clients && npm install && npm run build",
+    "build": "npx rimraf node_modules && cd clients && npx rimraf node_modules dist && cd .. && npm install && cd clients && npm install && npm run build",
     "start": "node server/index.js"
   },
   "author": "",
@@ -34,6 +34,7 @@
   "devDependencies": {
     "concurrently": "^9.2.0",
     "connect-history-api-fallback": "^2.0.0",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "rimraf": "^6.0.1"
   }
 }
